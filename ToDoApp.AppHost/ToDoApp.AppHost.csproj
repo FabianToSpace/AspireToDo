@@ -13,6 +13,12 @@
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" Version="9.0.0" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ToDoApp.ApiService\ToDoApp.ApiService.csproj" />
+    <ProjectReference Include="..\ToDoApp.Web\ToDoApp.Web.csproj" />
   </ItemGroup>
 
 </Project>

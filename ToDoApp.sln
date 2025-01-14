@@ -1,10 +1,16 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.0.0
 MinimumVisualStudioVersion = 17.8.0.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.AppHost", "ToDoApp.AppHost\ToDoApp.AppHost.csproj", "{D328EC3C-11A7-45F0-807C-492EA6AE0234}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApp.ServiceDefaults", "ToDoApp.ServiceDefaults\ToDoApp.ServiceDefaults.csproj", "{BF19497D-F30A-4A44-A947-C1652149711C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.ApiService", "ToDoApp.ApiService\ToDoApp.ApiService.csproj", "{67C563D1-2ACD-4CA0-92BF-F71E0FED1AEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Data", "ToDoApp.Data\ToDoApp.Data.csproj", "{217FCFBC-1CF7-4F97-8C90-9E89B6B42D16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp.Web", "ToDoApp.Web\ToDoApp.Web.csproj", "{D852E002-67AF-4C71-A7BA-FE325FA3559D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +26,18 @@ Global
 		{BF19497D-F30A-4A44-A947-C1652149711C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF19497D-F30A-4A44-A947-C1652149711C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF19497D-F30A-4A44-A947-C1652149711C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67C563D1-2ACD-4CA0-92BF-F71E0FED1AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67C563D1-2ACD-4CA0-92BF-F71E0FED1AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67C563D1-2ACD-4CA0-92BF-F71E0FED1AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67C563D1-2ACD-4CA0-92BF-F71E0FED1AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{217FCFBC-1CF7-4F97-8C90-9E89B6B42D16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{217FCFBC-1CF7-4F97-8C90-9E89B6B42D16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{217FCFBC-1CF7-4F97-8C90-9E89B6B42D16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{217FCFBC-1CF7-4F97-8C90-9E89B6B42D16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D852E002-67AF-4C71-A7BA-FE325FA3559D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D852E002-67AF-4C71-A7BA-FE325FA3559D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D852E002-67AF-4C71-A7BA-FE325FA3559D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D852E002-67AF-4C71-A7BA-FE325FA3559D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

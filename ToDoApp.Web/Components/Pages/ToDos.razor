@@ -1,0 +1,80 @@
+﻿@page "/todos"
+@rendermode InteractiveServer
+@using ToDoApp.Data.Models
+@inject ToDoApiClient ToDoApiClient
+<PageTitle>ToDo List</PageTitle>
+
+<h1>ToDo List</h1>
+
+@if (_toDos == null)
+{
+    <p>
+        <em>
+            Loading...
+        </em>
+    </p>
+}
+else
+{
+    <input type="text" placeholder="Add a new ToDo" @bind="_newToDoTitle" />
+    <button @onclick="async () => await AddTodo()">Add</button>
+    <ul>
+        @foreach (var toDo in _toDos)
+        {
+            <li>
+                <input value="@toDo.Title" @onchange="async (args) => await UpdateTodoTitle(args, toDo)"/>
+                <input type="checkbox" checked="@(toDo.IsComplete != null && toDo.IsComplete.Value)" @oninput="async (args) => await UpdateTodoChecked(args, toDo)" />
+                <span style="cursor: pointer" @onclick="async () => await DeleteTodo(toDo)">❌</span>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private IEnumerable<ToDoEntry>? _toDos;
+    
+    private string? _newToDoTitle;
+
+    private async Task UpdateToDos()
+    {
+        _toDos = await ToDoApiClient.GetToDos();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UpdateToDos();
+    }
+    
+    private async Task AddTodo()
+    {
+        if (!string.IsNullOrEmpty(_newToDoTitle))
+        {
+            await ToDoApiClient.AddToDo(new ToDoEntry { Title = _newToDoTitle, IsComplete = false});
+            await UpdateToDos();
+        }
+    }
+
+    private async Task UpdateTodoChecked(ChangeEventArgs args, ToDoEntry toDo)
+    {
+        toDo.IsComplete = args.Value as bool?;
+        if (!string.IsNullOrEmpty(toDo.Title))
+        {
+            await ToDoApiClient.PatchToDo(toDo);
+        }
+    }
+    
+    private async Task UpdateTodoTitle(ChangeEventArgs args, ToDoEntry toDo)
+    {
+        toDo.Title = args.Value as string;
+        if (!string.IsNullOrEmpty(toDo.Title))
+        {
+            await ToDoApiClient.PatchToDo(toDo);
+        }
+    }
+
+    private async Task DeleteTodo(ToDoEntry toDo)
+    {
+        await ToDoApiClient.DeleteToDo(toDo.Id);
+        await UpdateToDos();
+    }
+}
